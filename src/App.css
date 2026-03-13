@@ -1,0 +1,15 @@
+.heading2{
+  background-color: green;
+  color: white;
+}
+
+.blue{
+  background-color: blue;
+  border-radius: 20px;
+  width: 90px;
+  padding: 10px;
+}
+
+.green{
+  background-color: green;
+}
