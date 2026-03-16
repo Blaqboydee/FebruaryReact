@@ -4,6 +4,7 @@ import Input from '../Input'
 const Signup = () => {
   return (
     <div>
+      <h1>This is signup</h1>
         <Input/>
         <Input/>
         <Input/>

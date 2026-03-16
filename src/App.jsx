@@ -1,92 +1,52 @@
-import { useState } from "react";
+
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Button from "./Button";
 import Product from "./Product";
 import "./App.css";
-import nature from "./assets/nature.avif";
 import Input from "./Input";
+import Signup from "./pages/Signup"
+import Login from "./pages/Login"
+import LandingPage from "./pages/LandingPage";
+import NotFound from "./pages/NotFound";
+import { Navbar } from "./Navbar";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Details from "./pages/Details";
 
-function App() {
-  function sayHello() {
-    alert("hello");
-  }
+function Layout() {
 
-   function sayHi() {
-    alert("Hi");
-  }
+  const location = useLocation();
+  console.log(location.pathname);
 
-
-  const [userDetails, setUserDetails] = useState({
-    username: "", 
-    email: "", 
-    password:""
-  })
-
-  const [users, setUsers] = useState([])
-
-
-  function collectInputValue(e) {
-    console.log(e.target.value);
-    console.log(e.target.name);
-
-    const name = e.target.name;
-    const value = e.target.value;
-
-    setUserDetails({...userDetails, [name]: value})
-
-    
-  }
-
+  const noNavBarPaths = ["/login", "/signup"]
+  const hideNavbar = noNavBarPaths.includes(location.pathname)
+  console.log(hideNavbar);
   
-  const collectDetails = () => {
-    
-    setUsers([...users, userDetails])
-    
-    console.log(users);
-  }
 
   return (
-    <div>
-      {/* <h1>PRODUCTS</h1> */}
-      {/* Passing props: img, name, desc, price */}
-      {/* <Product
-        img={nature}
-        name="Cyxus"
-        desc="Running Sneakers"
-        price="$29"
-      /> */}
+    <>
+      {!hideNavbar && < Navbar />}
+      <Routes>
+        <Route path="/" element={<Signup />} />
+        <Route path="/landinpage" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/details/:caroline" element={<Details/>}/>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+}
 
-      <Button
-       text="Ife"
-      classname="blue"
-       dothis={sayHello}
-      />
-
-      <Button dothis={sayHi} text="Caroline" />
-
-      <Button text="Hikmat" />
-
-      <Input
-        onchange={collectInputValue}
-        type="text"
-        placeholder="Input your name"
-        name="username"
-        
-      />
-      <Input
-        onchange={collectInputValue}
-        type="password"
-        placeholder="Input your password"
-        name="password"
-      />
-      <Input
-        onchange={collectInputValue}
-        type="email"
-        placeholder="Input your email"
-        name="email"
-      />
-
-      <button onClick={collectDetails}>Sumbit details</button>
-    </div>
+function App() {
+  
+  return (
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   );
 }
 
