@@ -68,7 +68,11 @@
     width: 100%;
 }
 
-.navbar-links a.active,
+.active{
+    color: #111;
+}
+
+.active,
 .navbar-links h3.active {
     color: #111;
 }
