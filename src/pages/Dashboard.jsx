@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
-import "../Dashboard.css"
+import "../components/Dashboard.css"
 
 
 const Sidebar = () => {

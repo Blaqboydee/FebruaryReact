@@ -1,18 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import { FaSpinner } from "react-icons/fa";
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { ProductContext } from '../context/ProductContext';
+
 
 const Products = () => {
 
-  const [products, setProducts] = useState([])
-  
-  useEffect(()=>{
-    fetch("https://dummyjson.com/products")
-    .then(res => res.json())
-    .then(data => console.log(data)
-    )
-  },[])
+const {products} = useContext(ProductContext)
+
+console.log(products);
 
 
   return (

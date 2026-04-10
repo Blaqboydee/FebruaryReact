@@ -1,8 +1,11 @@
 import React from 'react'
+import Counter from './Counter'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <div>Profile
+    <Counter/>
+    </div>
   )
 }
 
