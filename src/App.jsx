@@ -22,6 +22,10 @@ import Education from "./components/Education"
 import Trend from "./components/Trend";
 import Overview from "./components/Overview";
 import Productdetails from "./components/Productdetails";
+import UsersList from "./pages/UsersList";
+import Register from "./pages/Register";
+import SignIn from "./pages/SignIn";
+import UserDashboard from "./pages/UserDashboard";
 
 function Layout() {
 
@@ -48,6 +52,10 @@ function Layout() {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/details/:caroline" element={<Details/>}/>
+        <Route path="user-list" element={<UsersList/>}/>
+        <Route path="register" element={<Register/>}/>
+        <Route path="signin" element={<SignIn/>}/>
+        <Route path="user-dashboard" element={<UserDashboard/>}/>
 
 
         <Route path="/dashboard" element={<Dashboard />}>
