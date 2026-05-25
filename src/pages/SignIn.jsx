@@ -16,6 +16,7 @@ const SignIn = () => {
         .then((response)=>{
             console.log(response)
             if(response.data.status == true){
+                localStorage.token = response.data.token
                 navigate("/user-dashboard")
             }else{
                 setmessage(response.data.message)
