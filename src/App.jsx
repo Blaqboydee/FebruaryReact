@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "./components/Button";
@@ -38,8 +38,8 @@ function Layout() {
   const hideNavbar = noNavBarPaths.includes(location.pathname)
   console.log(hideNavbar);
 
+  const token = localStorage.token
 
-  
 
   return (
     <>
@@ -55,7 +55,7 @@ function Layout() {
         <Route path="user-list" element={<UsersList/>}/>
         <Route path="register" element={<Register/>}/>
         <Route path="signin" element={<SignIn/>}/>
-        <Route path="user-dashboard" element={<UserDashboard/>}/>
+        <Route path="user-dashboard" element={token ? <UserDashboard/> : <Navigate to="/signin"/>}/>
 
 
         <Route path="/dashboard" element={<Dashboard />}>
