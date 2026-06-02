@@ -26,6 +26,7 @@ import UsersList from "./pages/UsersList";
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import UserDashboard from "./pages/UserDashboard";
+import FileUpload from "./pages/FileUpload";
 
 function Layout() {
 
@@ -56,6 +57,7 @@ function Layout() {
         <Route path="register" element={<Register/>}/>
         <Route path="signin" element={<SignIn/>}/>
         <Route path="user-dashboard" element={token ? <UserDashboard/> : <Navigate to="/signin"/>}/>
+        <Route path="/file" element={<FileUpload/>}/>
 
 
         <Route path="/dashboard" element={<Dashboard />}>
